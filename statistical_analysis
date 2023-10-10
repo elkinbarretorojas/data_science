@@ -1,3 +1,5 @@
+
+
 # Dataset Explanation
 
 The dataset is structured based on vehicle type and includes the models from the year 2015. Vehicles are listed alphabetically in each carline by brand, division, and model. Additionally, each vehicle type has different features, such as engine displacement, Cylinders, Transmission Type, Air Aspiration method, Gears, and release date. 
@@ -164,4 +166,7 @@ What type of car is environmentally friendly?  The type of cars with the lowest 
 •	Manual Transmission
 •	Naturally Air Aspiration Method
 •	2-Wheel drive
+
 In addition, as the Combined CO2 and Combined FE2 have a negative strong correlation, generally the type of car that has highest Fuel Economy is the less environmentally friendly.
+
+https://github.com/juliejlai/data-science/blob/main/Big_Data_Analytics/README.md?plain=1
