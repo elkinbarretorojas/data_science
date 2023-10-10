@@ -1,1 +1,167 @@
+# Dataset Explanation
 
+The dataset is structured based on vehicle type and includes the models from the year 2015. Vehicles are listed alphabetically in each carline by brand, division, and model. Additionally, each vehicle type has different features, such as engine displacement, Cylinders, Transmission Type, Air Aspiration method, Gears, and release date. 
+Moreover, according to the US Department of Energy (2023), the Fuel Economy (FE) and CO2 measures have been defined in the following three ways: 
+
+•	City: Related to urban driving, the vehicle starts in the morning and drives in normal city traffic, stop and go behaviour. 
+•	Highway:  Involves all the highway routes, the vehicle warmed up and typically without traffic and high speeds. 
+•	Combined: This represents a combination of highway driving (45%) and city driving (55%).
+
+The subsequent analysis sections will explain the data cleaning techniques used with the software IBM SPPS statistics.
+
+#####Missing Values / Errors
+With the help of the option “Frequencies” within the software. The analysis showed zero missing or error values through the 9 numerical variables. 
+
+ 
+Figure 6. Numerical Variables Missing Values
+In addition, the same analysis described that the 10 numerical variables do not contain any missing or error values.
+ 
+Figure 7. Categorical Variables Missing Values
+1.3.3.	Duplicates
+Continuing the data cleaning techniques, the “Identify Duplicate Cases” option demonstrated 7 following duplicate cases. Therefore, these cases have been removed from the dataset, leading to a reduction in the total number of from 728 to 721 cases. 
+
+ 
+Figure 8. Duplicated Cases
+1.3.4.	Outliers
+Based on the analysis of section 1.4 where we defined the variables City and Highway are positive strongly correlate with the Combined variable. Consequently, the examination of outliers will focus on the Combined FE and CO2 measures. 
+
+
+
+
+
+
+ 
+
+
+The above figure defines 3 outlier’s cases in the Combined Fuel Economy variable. As suggested technique for this scenario, the values were replaced with the respective group’s average fuel economy for each instance. To illustrate, the Fusion Hybrid FWD cars belongs to the Fusion Hybrid carline group. Then, the previous combined FE value of 42 was replaced by 29 (Fusion Hybrid FE average). In addition, it was applied the same technique process to the other 2 instances. After this process, the next figure shows the new boxplot.
+ 
+
+
+Guide by the same argument of section 1.4 correlation. The analysis outlier focuses on the Combined CO2, in this case, 9 cases were identified as outliers. However, there were no actions with these cases due to are powerful cars as the Bugatti Veron, and they do not have any comparison points in the market as their unique models.
+
+ 
+Figure 11. Boxplot Outliers Combined CO2
+In summary, after using the cleaning techniques described previously such as missing values, replacing errors, removing duplicates, and substituting outliers. The dataset is prepared to do the appropriate analysis in the following sections.
+1.4.	 Data Analytical Method
+The upcoming analytics method beings by conducting a descriptive analysis of the two variables linked to the hypothesis: CO2 and FE. The next are the steps followed by the method.
+
+•	Pearson Linear Correlation Coefficient test to define the relationship between City, Highway and Combined variable. The purpose was defined the Combined CO2 and FE as the central variable of the whole analysis. 
+•	Descriptive Statistics Analysis for both qualitative and quantitative variables.
+•	Test of normality to know whether the CO2 and FE follow a normal distribution. 
+•	Pearson Linear Correlation Coefficient test to determine the correlation between the quantitative measures and combined measures.
+•	Chi-Square to understand the correlation between qualitative and the combined measures.
+•	Graphical analysis to complement the statistical analysis and understand the car characteristics that drive lowest or highest FE/CO2.
+•	Accept or Reject Hypothesis and answer the initial research questions.
+
+The succeeding table shows the Output of the Pearson Correlation Pearson between Combined Fuel Economy, Citi Fuel Economy, and Highway Fuel Economy.
+
+ 
+Figure 12. Pearson Correlation Fuel Economy Variables
+Given the above, it can be said that the Combined FE has a statistically significance linear relationship with City FE (r=0.971, p < 0.01) and Highway FE (r=0.969, p < 0.01) for a two-tailed test. Additionally, the relationship is positively strong as the coefficient is close to 1.
+ 
+ Figure 13. Pearson Correlation CO2 Variables
+Nevertheless, it can be said that the Combined CO2 has a statistically significance linear relationship with City CO2 (r=0.976, p < 0.01) and Highway CO2 (r=0.994, p < 0.01) for a two tailed test. Moreover, the relationship is positively strong as the coefficient is close to 1. 
+
+In conclusion, it was demonstrated that City and Highway metrics have a strong linear relationship with the combined Variables. For that reason, from onward will be used the Combined metrics to answer the Research questions to simplify the analysis.
+
+1.4.1.	Descriptive Statistics Analysis	
+These statistics will guide an overall understanding of the dataset throughout measure of central tendency and dispersion, or graphical representations, such as histograms, boxplots, scatter plots, used to display the data an discover trends (Stapor, 2020). The following descriptive statistics was performed by using the SPSS software.
+ 
+   Figure 14. Descriptive Statistics Combined FE and CO2
+Given the above, the standard deviation is relatively close to the means of both variables Combined FE and CO2, which results in fewer outliers. This can be cross-checked with the Outliers analysis performed in the previous cleaning section.
+
+Next, the Kurtosis measure output are classified as Platykurtic for both Combined FE (-0.1) and Combined CO2 (1.53). This means, the distribution has short tails and few outliers. On the other hand, the Combined FE Skewness coefficient is nearly symmetrical (0.324) leading the left and right tails contains approximately the same number of observations. However, the Combined CO2 is positively skewed (0.995), that means the data is greater than the median and large numbers are in the right tail.
+
+ 
+Figure 15. Normal Distribution Histogram Combined FE
+Finally, the following figures will complement graphically the analysis performed previously. In both figures 15 and 16, we can see a Histogram graph with the frequency of both variables. In addition, a normal distribution line to correlate the results obtained in the Kurtosis and Skewness analysis.
+
+ 
+  Figure 16. Normal Distribution Combined CO2
+1.4.2.	Test of Normality
+Now, to know what kind of tests are suitable for the dataset, here are the outputs to run a Test of normality in SPSS.
+ 
+Figure 17. Test of Normality Combined FE and CO2
+The results were conducted in two types of tests, Kolmogorov-Smirnov, and Shapiro-Wilk. Since the dataset contains 721 observations, both tests are suggested to assess normality. We can see from the above in both cases that the data differs significantly from a normal distribution as the Sig. value of both test es less than 0.05. In simpler terms, we have significance evidence to reject the Null-Hypothesis suggesting that the data for both variables follow a normal distribution.
+
+ 
+Figure 18. Normal Q-Q Plot of Combined FE
+However, we used a Q-Q plot to compare theoretical normal distribution graphically (taking the mean and variance of the data) with our distribution. The graph shows few outliers at the beginning and end of the graph, as the Test of normality suggested before. 
+
+ 
+Figure 19. Normal Q-Q Plot of Combined CO2
+To conclude, for both variables Combined FE and CO2, these small deviations from a perfect normal distribution would not prevent us from using parametric or non-parametric statistical methods.
+1.4.3.	Pearson Linear Correlation Coefficient
+The Pearson Linear Correlation Coefficient measure the strength of a relation between two quantitative variables of a dataset (Shayib, 2013). We performed the analysis through the SPSS Bivariate tool between the quantitative variables.
+ 
+Figure 20. Pearson Correlation Coefficient Quantitative Variables
+The above results demonstrated that the Correlation is statistically significant (p<0.01) between both Combined variables with the other three independent variables (Engine Displacement, No Cylinders, No Gears). Furthermore, this relation can be explained as following:
+
+•	Strong negative correlation between Combined FE with Engine Displacement, No of Cylinders, and Combined FE.
+•	Weak negative correlation between Combined FE and No Gears.
+•	Strong positive correlation between Combined CO2 and Engine Displacement and No of Cylinders.
+•	Weak positive correlation between Combined FE and No Gears
+1.4.4.	Chi-Square Test
+After performing the previous test with the quantitative variable. This process will continue evaluating the qualitative variables with e Chi-Square Test. The variables of the dataset are Division, Carline, Transmission, Air Aspiration Method, Drive Desc, and Carline Class. The next table is the output of the test for the variable Combined FE and division.
+ 
+ Figure 21. Chi-Square Test Combined FE and Division
+From the previous example, we had significant evidence to reject the null hypothesis, and demonstrate the correlation between Combined FE and Division variables. The previous statement was concluded since the p-value is less than 0.001. Additionally, we used the same process with the other qualitative variables, and we conclude the Combined FE and CO2 have an association with Division, Carline, Transmission, Air Aspiration Method, Drive Desc, and Carline Class variables. 
+1.4.5.	Graphical Analysis of Variables Associated
+From the results of the Pearson Linear Coefficient and Chi-Square Tests, we discovered the quantitative and qualitative variables with a strong correlation with the FE and CO2 variables. To complement the analysis, we will perform a graphical analysis of those variables.
+
+ 
+Figure 22. Boxplot Combined FE by Division
+Looking at the above figure, the Luxuries brand such as Bugatti, Lamborghini and Aston Martin are the lowest fuel economy type of car (Liters/100km). In other words, the cars that consume less litters for each 100 kilometres.
+
+ 
+Figure 23. Boxplot Combined CO2 by Division
+Contrary, from the above figure we can define from the CO2 mean of the dataset that the non-luxury brands are the most environmentally friendly such as Fiat, Mini, and Mazda. Tu put it in another way, the cars that emit fewer amount of CO2 by Kilometre.
+
+The following figure shows on average the FE in Automatic transmission cars are lower than manual transmission cars. In other words, the Automatic cars have the lowest Fuel Economy.
+ 
+Figure 24. Boxplot Combined FE by Transmission
+Oppositely, the previous graph defines the Manual car with lower CO2 emissions in Average. In other words, Automatic cars are the less environmentally friendly type of car.
+
+ 
+Figure 25. Combined CO2 by Transmission
+From previous figure, we can say that in average, the cars with Supercharged Air Aspiration method have the lowest Fuel Economy. 
+
+ 
+Figure 26. Combined FE by Air Aspiration Method
+However, the Turbocharged + Supercharged Air Aspiration Method on average is the category with most environmentally friendly cars. In other words, these types of cars emit less CO2 than others.
+
+ 
+Figure 27. Combined CO2 by Air Aspiration Method
+Succeeding, the next figure demonstrates the most efficient FE type of Drive Desc is the Part-Time-4 Wheel. In other words, the average consumption of Fuel by kilometre is lower than other.
+ 
+        Figure 28. Combined FE by Drive Desc
+In contrast, comparing this characteristic with CO2 emissions, we can determine from the following figure that the 2-Wheel Drive, Fron is the friendliest with the environment.
+
+ 
+Figure 29. Combined CO2 by Drive Desc
+Finally, the next graph shows the Van class on average has the lower Fuel Economy, it can be Cargo or Passenger type. On the other hand, as the mean of the categories is relatively close, we cannot define which type of car emits less CO2 from the dataset.
+
+ 
+Figure 30. Boxplot of Combined FE by Carline Class
+1.4.6.	Conclusion and Evaluation 
+In conclusion, after cleaning the dataset, choosing the correct variable, assessing by descriptive statistics analysis, evaluating the data with normal distribution, and performing correlation analysis for both quantitative and qualitative variables. We can reject both Null hypotheses formulated at the beginning of this section and accept the Alternative Hypothesis.
+
+ 
+Figure 31. Result Null and Alternative Hypothesis
+From the above conclusion, we can say there is a correlation between Fuel Economy and CO2 emissions, with the following car characteristics: Division, Engine Displacement, No. Cylinders, Transmission, No Gears, Drive Desc, and Carline Class. Finally, we can answer the research questions formulated in the context.
+What type of car provides the most fuel economy? The type of car that proves the lowest Combined FE (L/100k) can be defined with the following characteristics:
+•	Luxury Brands (Bugatti, Lamborghini, Aston Martin)
+•	High Engine Displacement (6 to 8)
+•	Highest Number of Cylinders (12, 16)
+•	Automatic Transmission
+•	Supercharged Air Aspiration Method
+•	Part -Time 4 Wheel drive
+•	Van
+What type of car is environmentally friendly?  The type of cars with the lowest CO2 emission (g/km) is:
+•	Non-Luxury Brands (FIAT, Mazda, Mini)
+•	Low Engine displacement (1 to 2)
+•	Low Number of cylinders (3, 4)
+•	Manual Transmission
+•	Naturally Air Aspiration Method
+•	2-Wheel drive
+In addition, as the Combined CO2 and Combined FE2 have a negative strong correlation, generally the type of car that has highest Fuel Economy is the less environmentally friendly.
