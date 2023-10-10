@@ -9,7 +9,7 @@ Moreover, according to the US Department of Energy (2023), the Fuel Economy (FE)
 
 The subsequent analysis sections will explain the data cleaning techniques used with the software IBM SPPS statistics.
 
-#####Missing Values / Errors
+##### Missing Values / Errors
 With the help of the option “Frequencies” within the software. The analysis showed zero missing or error values through the 9 numerical variables. 
 
  
